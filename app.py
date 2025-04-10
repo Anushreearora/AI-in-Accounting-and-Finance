@@ -19,13 +19,17 @@ def dbs():
 
 @app.route("/sentiment_analysis",methods=["GET","POST"])
 def sentiment_analysis():
-    return(render_template("sentiment_analysis.html"))
+    return(render_template("sentimentAnalysis.html"))
 
 @app.route("/sentiment_result",methods=["GET","POST"])
 def sentiment_result():
     q = request.form.get("q")
     r = textblob.TextBlob(q).sentiment
-    return(render_template("sentiment_result.html", r=r))
+    return(render_template("sentimentResult.html", r=r))
+
+@app.route("/paynow",methods=["GET","POST"])
+def paynow():
+    return(render_template("paynow.html"))
 
 if __name__ == "__main__":
     app.run()

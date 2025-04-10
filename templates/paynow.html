@@ -79,9 +79,10 @@
                 const payee = document.getElementById("payee").value;
                 const amount = document.getElementById("amount").value;
 
-                console.log("owner is ", accounts[0]);
+                console.log("owener is ", accounts[0]);
                 console.log(payer,payee,amount);
 
+                await contract.methods.weixin(payer,payee,amount).send({from:accounts[0]});
             }
 
             async function transaction() {
